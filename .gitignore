@@ -1,3 +1,4 @@
-# Ignore .idea files
-.idea
-.xml
+# Ignore .idea files and xml
+*.idea
+*.xml
+
