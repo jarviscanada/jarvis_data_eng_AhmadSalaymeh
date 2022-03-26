@@ -357,7 +357,7 @@ This returened all the values that the crontab would have inserted every minute 
 
 <img src="Assets/test_images/crontab-sql-result_1.png" width=500>
 
-# Deplyoment
+# <ins>Deplyoment</ins>
 The Program is deployed using the following technologies
 
 - Bash scripts to automate the process
@@ -367,7 +367,7 @@ The Program is deployed using the following technologies
 - GitHub to maintain the source code of the program.
 
 
-# Improvements
+# <ins>Improvements</ins>
 
 Create a backup or a database that will store the information even after destroying the docker container.
 
