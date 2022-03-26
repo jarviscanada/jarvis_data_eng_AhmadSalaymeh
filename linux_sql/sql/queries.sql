@@ -19,31 +19,4 @@ HAVING COUNT(*) < 3
 order by 3 ;
 
 
----FUNCTIONS----
--- SELECT date_trunc('hour', timestamp) + date_part('minute', timestamp):: int / 5 * interval '5 min'
--- FROM host_usage;
-
--- CREATE FUNCTION round5(ts timestamp) RETURNS timestamp AS
--- $$
--- BEGIN
---     RETURN date_trunc('hour', ts) + date_part('minute', ts):: int / 5 * interval '5 min';
--- END;
--- $$
---     LANGUAGE PLPGSQL;
---
--- SELECT host_id, timestamp, round5(timestamp)
--- FROM host_usage;
-
--- CREATE FUNCTION avg_mem_perecentage(total_mem int, memory_free int) RETURNS INT
---     AS
---     $$
---        BEGIN
---             return (round(((total_mem / 1000) - memory_free),2)/(total_mem/1000)) * 100;
---
---        END;
---     $$
---     LANGUAGE PLPGSQL;
---
---
-
 
