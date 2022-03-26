@@ -149,7 +149,8 @@ crontab -e
 
 
 
-## DB Modeling
+## <ins>DB Modeling</ins>
+
 | host_info          | Description                                  |  
 |--------------------|----------------------------------------------|
 | id                 | PK used to identify the nodes on the cluster |
