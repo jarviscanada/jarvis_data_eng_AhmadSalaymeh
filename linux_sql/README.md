@@ -18,7 +18,7 @@ The technologies that the programing is using are the following.
 - GitHub
     - Github is used to maintain the source code of this program.
 
-#<ins> Quick Start</ins>
+# <ins>Quick Start</ins>
 
 This a quick start guide to get the program up and running.
 
@@ -43,7 +43,7 @@ psql -h localhost -p 5432 -d host_agent -U host -f /sql/queries.sql
 
 
 
-##<ins>Implemenation</ins>
+## <ins>Implemenation</ins>
 
 - **psql_docker.sh**: This script is responsible for creating/starting/stopping the PSQL database in a docker container.
 -  **host_info.sh**: This script is responsible for getting the hardware specification for the server and sending that information to the database.
@@ -55,7 +55,7 @@ psql -h localhost -p 5432 -d host_agent -U host -f /sql/queries.sql
 
 
 
-##<ins> Architecture</ins>
+## <ins>Architecture</ins>
 
 <img src="Assets/architecture/image_(1).jpg" width=600>
 
@@ -63,7 +63,7 @@ The docker container will be used to persist all the data, and it will be set to
 
 
 
-##<ins>scripts</ins>
+## <ins>scripts</ins>
 **&nbsp;psql_docker.sh**
 
 
@@ -113,7 +113,7 @@ The docker container will be used to persist all the data, and it will be set to
 </tr>
 </Table>
 
-#####&nbsp;host_info.sh & host_usage.sh
+##### &nbsp;host_info.sh & host_usage.sh
 
 Usage         | Description                                                                                 | Default|
 ------------- |---------------------------------------------------------------------------------------------| ----------|
@@ -132,7 +132,7 @@ psql_password | specifiy the password to login into the psql server             
 ./host_usage.sh psql_host psql_port database_name psql_username psql_password
 ./host_usage.sh "localhost" 5432 "host_agent" "host" "password"
 ```
-####&nbsp;Crontab
+#### &nbsp;Crontab
 ```bash
 #step 1 edit the crontab 
 
@@ -149,7 +149,7 @@ crontab -e
 
 
 
-## DB modeling
+## DB Modeling
 | host_info          | Description                                  |  
 |--------------------|----------------------------------------------|
 | id                 | PK used to identify the nodes on the cluster |
@@ -177,7 +177,7 @@ crontab -e
 |avg_mem_perecentage| This function returns an INT of the average memory being used by the node |
 
 
-#<ins>Test</ins>
+# <ins>Test</ins>
 The test I ran to ensure that the program was running correctly.
 
 **Docker Script test**
@@ -274,7 +274,7 @@ Test: Confirming that the script won't run unless all parameters are correct  co
 ./scripts/host_info.sh localhost 5432 host_agent host
 #expected error needs all five parameters  
 ```
-<img src="/Assets/test_images/host_info_1.png" width=500>
+<img src="Assets/test_images/host_info_1.png" width=500>
 
 
 Test: host_info.sh inserted data into the database
@@ -290,9 +290,9 @@ psql -h localhost -U host
 SELECT * FROM host_info;
 #return all rows in the host_info table, Expected 1 row. 
 ```
-<img src="/Assets/test_images/host_info_2.png" width=500>
+<img src="Assets/test_images/host_info_2.png" width=500>
 
-<img src="/Assets/test_images/host_info_3.png" width=500>
+<img src="Assets/test_images/host_info_3.png" width=500>
 
 
 **host_usage**
@@ -301,7 +301,7 @@ Test: Confirming that the script won't run unless all parameters are correct cor
 ./scripts/host_usage.sh localhost 5432 host_agent host
 #expected error needs all five parameters  
 ```
-<img src="/Assets/test_images/host_usage_2.png" width=500>
+<img src="Assets/test_images/host_usage_2.png" width=500>
 
 Test: host_info.sh inserted data into the database
 
@@ -320,7 +320,7 @@ SELECT * FROM host_usage;
 ```
 
 
-<img src="/Assets/test_images/host_usage_3.png" width=500>
+<img src="Assets/test_images/host_usage_3.png" width=500>
 
 ----------------------------
 **Crontab**
@@ -343,7 +343,7 @@ After ensuring that the crontab services are currently running. I checked the /t
  ```
 
 
-<img src="/Assets/test_images/crontab-result.png" width=500>
+<img src="Assets/test_images/crontab-result.png" width=500>
 
 
 ```bash
@@ -366,7 +366,7 @@ The Program is deployed using the following technologies
 - GitHub to maintain the source code of the program.
 
 
-# improvements
+# Improvements
 
 Create a backup or a database that will store the information even after destroying the docker container.
 
