@@ -1,0 +1,103 @@
+{
+  "education": [
+    {
+      "awards_achievements": null,
+      "degree": "Bachelor of Science",
+      "department": "Computer Science",
+      "duration": "2017-2021",
+      "school_name": "Wilfrid Laurier University"
+    }
+  ],
+  "github_repo_root_url": "https://github.com/jarviscanada/jarvis_data_eng_AhmadSalaymeh",
+  "highlighted_projects": [
+    {
+      "description": "This program allows the Linux cluster administration to view, monitor, and obtain data on nodes/servers running. In addition, this program provides real-time resource usage, and the LCA team will use data to create reports.",
+      "name": "Cluster Monitor"
+    }
+  ],
+  "jarvis_projects": [
+    {
+      "description": "I Implemented a monitor agent to allow the Linux Cluster administration to view, monitor, and obtain data on each node running in real-time. This program used bash scripts to get the information on of the node and used crontab to obtain the current usage. These scripts can be used on different machines simultaneously. In addition, I have created a database with the appropriate tables to store the information. Used docker to provision a Postgresql instance that stored the database.",
+      "git_url": "/linux_sql",
+      "name": "Cluster Monitor"
+    },
+    {
+      "description": [
+        "Twitter App: Inprogress.",
+        "JDBC App: Inprogress.",
+        "Grep App: Inprogress."
+      ],
+      "git_url": "/core_java",
+      "name": "Core Java Apps"
+    },
+    {
+      "description": "",
+      "git_url": "/springboot",
+      "name": "Springboot App"
+    },
+    {
+      "description": "",
+      "git_url": "/python_data_anlytics",
+      "name": "Python Data Analytics"
+    },
+    {
+      "description": "",
+      "git_url": "/hadoop",
+      "name": "Hadoop"
+    },
+    {
+      "description": "",
+      "git_url": "/spark",
+      "name": "Spark"
+    },
+    {
+      "description": "",
+      "git_url": "/cloud_devops",
+      "name": "Cloud/DevOps"
+    }
+  ],
+  "name": "Ahmad Salaymeh",
+  "others": [
+    {
+      "bullets": [
+        "Fitness",
+        "Reading Books",
+        "Creating Music and painting",
+        "Causal gaming"
+      ],
+      "title": "Activities/Hobbies"
+    }
+  ],
+  "professional_experience": [
+    {
+      "company": "Jarvis",
+      "description": "Implementing applications using the agile methodology Led, organized and participated in daily scrum meetings with the development team. It allowed us to communicate, problem-solve, and discuss our current goals for the day. I also practiced in scrum retro meetings, where we discussed the previous sprint cycle and how to improve moving forward. I used Linux, Docker, and bash scripts to complete the Monitoring agent program. As well as used Notion to track my daily tickets and sprint backlog.",
+      "duration": "2022-present",
+      "title": "Software Developer"
+    }
+  ],
+  "skills": {
+    "competent": [
+      "Python",
+      "JavaScript",
+      "Docker",
+      "HTML/CSS",
+      "Bootstrap"
+    ],
+    "familiar": [
+      "Google Cloud Platform (GCP)",
+      "Android Studio",
+      "XCode/Swift",
+      "VBA",
+      "C"
+    ],
+    "proficient": [
+      "Java",
+      "Linux/Bash",
+      "RDBMS/SQL",
+      "Agile/Scrum",
+      "Git"
+    ]
+  },
+  "summary": "I'm a recent graduate from Wilfrid Laurier University with a Bachelor of Science in Computer Science, looking to advance my career in software development. During my undergrad, I learned the fundamental of programming through data structures and algorithm courses and obtained programming skills in languages such as Python and Java. Currently, I am working at Jarvis, where I am improving my knowledge and skills in programming. I enjoy tackling new challenges and pushing myself to learn more, which helps me grow. I also like to read books (Sci-Fi, Fiction Novels, Self-help) during my free time, which help me gain new perspectives. I also enjoy working out, creating music, and painting, as These activities allow me to destress and relax."
+}
