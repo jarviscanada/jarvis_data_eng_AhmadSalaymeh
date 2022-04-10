@@ -40,14 +40,13 @@ public class JavaGrepImp implements JavaGrep {
     javaGrepImp.setRootPath(args[1]);
     javaGrepImp.setOutFile(args[2]);
 
-//    try {
-//
-//      javaGrepImp.proccess();
-//    } catch (Exception ex) {
-//      javaGrepImp.logger.error("Error: Unable to process", ex);
-//
-//    }
-    javaGrepImp.proccess();
+    try {
+
+      javaGrepImp.proccess();
+    } catch (Exception ex) {
+      javaGrepImp.logger.error("Error: Unable to process", ex);
+
+    }
 
   }
 
