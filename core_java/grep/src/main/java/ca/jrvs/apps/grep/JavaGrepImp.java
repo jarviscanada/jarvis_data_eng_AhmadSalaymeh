@@ -168,7 +168,7 @@ public class JavaGrepImp implements JavaGrep {
    */
   @Override
   public void writeToeFile(List<String> lines) throws IOException {
-    FileOutputStream output = new FileOutputStream(getOutFile(),true);
+    FileOutputStream output = new FileOutputStream(getOutFile());
     OutputStreamWriter writer = new OutputStreamWriter(output);
     BufferedWriter buffer = new BufferedWriter(writer);
 
@@ -181,10 +181,3 @@ public class JavaGrepImp implements JavaGrep {
 }
 
 
-
-//try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
-//      new FileOutputStream("output.txt", true), "UTF-8"))) {
-//    writer.write(updatedLine);
-//    writer.newLine();
-//  }
-//}
