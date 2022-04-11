@@ -4,6 +4,7 @@ package ca.jrvs.apps.grep;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Stream;
 
 public interface JavaGrep {
   /**
@@ -33,6 +34,8 @@ public interface JavaGrep {
    */
   List<String> readLines(File inputFile);
 
+
+
   /**
    * check if a line contains the regex patter (passed by user)
    * @param line input string
@@ -51,5 +54,7 @@ public interface JavaGrep {
    * @throws IOException if write failed
    */
   void writeToeFile(List<String> lines) throws IOException;
+
+
 
 }
