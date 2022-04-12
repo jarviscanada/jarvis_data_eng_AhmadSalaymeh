@@ -41,7 +41,6 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
 
   @Override
   public List<File> listFiles(String rootDir){
-      File file = new File(rootDir);
       List<File> dir = new ArrayList<>();
       try{
         dir = Files.walk(Paths.get(rootDir)).filter(Files::isRegularFile).map(Path::toFile).collect(

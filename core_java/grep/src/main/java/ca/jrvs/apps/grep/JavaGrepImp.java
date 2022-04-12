@@ -12,6 +12,7 @@ import java.io.Reader;
 import java.nio.file.DirectoryStream;
 import java.nio.file.FileSystem;
 import java.nio.file.Path;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -43,6 +44,8 @@ public class JavaGrepImp implements JavaGrep {
     try {
 
       javaGrepImp.proccess();
+
+
     } catch (Exception ex) {
       javaGrepImp.logger.error("Error: Unable to process", ex);
 
@@ -88,7 +91,6 @@ public class JavaGrepImp implements JavaGrep {
   public void proccess() throws IOException {
     List<String> matchedLines = new ArrayList<>();
     List<File> files = listFiles(getRootPath());
-    int count=0;
     for (File file : files){
       for (String line: readLines(file)){
         if (containsPattern(line)){
