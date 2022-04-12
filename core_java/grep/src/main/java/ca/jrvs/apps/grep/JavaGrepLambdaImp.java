@@ -39,7 +39,6 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
     }
   }
 
-
   @Override
   public List<File> listFiles(String rootDir){
       File file = new File(rootDir);
@@ -65,8 +64,6 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
 
     return inputLines;
   }
-
-
 
 
 }
