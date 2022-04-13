@@ -32,6 +32,7 @@ cat log/grep.out
 
 
 ## Pseudocode
+The Process for this application is the following: we want to go through all files in our directory and check if the file contents match the REGEX pattern that the user input and outputs the results to grep.out
 ```
 for file in files:
     for line in file:
