@@ -53,7 +53,10 @@ without storing any information to get the desired outcome.
 
 
 # Test
-How did you test your application manually? (e.g. prepare sample data, run some test cases manually, compare result)
+To test the Grep Application, I compared the program's results to the Linux command "grep."
+
+<img src="Assests/test.png">
+
 
 # Deployment
 The Grep application is deployed for use on docker hub.
