@@ -78,7 +78,7 @@ public class JavaGrepLmpIntImpl implements JavaGrepLmp {
     try {
       return Files.walk(Paths.get(rootDir)).filter(Files::isRegularFile).map(Path::toFile);
     }catch (IOException e){
-      e.printStackTrace();
+      logger.error("Error: ",e);
     }
     return null;
   }
@@ -97,7 +97,7 @@ public class JavaGrepLmpIntImpl implements JavaGrepLmp {
     try {
       return Files.lines(inputFile.toPath());
     } catch (IOException e) {
-      e.printStackTrace();
+      logger.error("Error: ",e);
     }
 
     return null;
@@ -134,7 +134,7 @@ public class JavaGrepLmpIntImpl implements JavaGrepLmp {
         buffer.write(line);
         buffer.newLine();
       } catch (IOException e) {
-        e.printStackTrace();
+        logger.error("Error: ",e);
       }
     });
     buffer.close();
