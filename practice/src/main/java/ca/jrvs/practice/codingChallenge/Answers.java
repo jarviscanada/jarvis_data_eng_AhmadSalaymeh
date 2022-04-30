@@ -50,4 +50,30 @@ public class Answers {
     return stack.empty();
   }
 
+
+  /**
+   * takes an array of ints and checks if there are two unique numbers
+   * that add up ot target
+   *
+   * @param nums
+   * @param target
+   * @return an array of ints which has the index of the two numbers that add to target
+   */
+  public int[] twoSum(int[] nums, int target){
+    int[] ans= new int[2];
+
+    for(int i=0; i < nums.length -1; i++){
+      for (int j=i+1; j<nums.length; j++){
+        if (nums[i]+nums[j] == target){
+          ans[0]=i;
+          ans[1]=j;
+          return ans;
+        }
+      }
+    }
+    return null;
+  }
+
+
+
 }

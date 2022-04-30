@@ -18,4 +18,13 @@ public class AnswersTest {
     assertEquals(false,answers.validParentheses("{]{]()"));
 
   }
+
+  @Test
+  public void twoSum() {
+    Answers answers = new Answers();
+
+    assertArrayEquals(new int[]{1,2}, answers.twoSum(new int[]{1,5,3,6},8));
+    assertArrayEquals(new int[]{0,2}, answers.twoSum(new int[]{5,5,3,6},8));
+    assertArrayEquals(null, answers.twoSum(new int[]{5,5,3,6},60));
+  }
 }
