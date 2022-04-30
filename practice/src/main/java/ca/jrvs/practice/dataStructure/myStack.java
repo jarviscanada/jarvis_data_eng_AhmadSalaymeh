@@ -71,7 +71,7 @@ public class myStack {
 
   }
 
-  
+
   @Override
   public String toString() {
     return "myStack{" +
