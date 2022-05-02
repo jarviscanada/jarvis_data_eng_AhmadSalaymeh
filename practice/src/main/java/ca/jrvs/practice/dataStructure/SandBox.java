@@ -1,11 +1,14 @@
 package ca.jrvs.practice.dataStructure;
 
-class HelloWorld {
+import ca.jrvs.practice.dataStructure.Graph.Vertex;
+import java.util.LinkedList;
+
+class SandBox {
 
   // Your program begins with a call to Main().
-  // Prints "Hello, World" to the terminal window.
   public static void main(String args[]) {
-    System.out.println("Hello, World");
+
+
 
   }
 }
