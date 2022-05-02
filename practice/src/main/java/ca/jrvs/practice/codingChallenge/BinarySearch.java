@@ -6,29 +6,29 @@ import java.util.Optional;
 
 public class BinarySearch{
 
-
-  /**
-   * find the target index in a sorted array
-   *
-   * @param arr input array is sorted
-   * @param target value to be serached
-   * @return target index or Optional.empty() if no found
-   */
-
-  public <E> Optional<Integer> binarySearchRecursion(E[] arr, E target){
-    return Optional.empty();
-  }
-
-  /**
-   * find the target index in a sorted array
-   *
-   * @param arr input array is sorted
-   * @param target value to be searched
-   * @return target index or Optional.empty() if not found
-   */
-  public <E> Optional <Integer> binarySearchIteration(E[] arr, E target) {
-    return Optional.empty();
-  }
+//
+//  /**
+//   * find the target index in a sorted array
+//   *
+//   * @param arr input array is sorted
+//   * @param target value to be serached
+//   * @return target index or Optional.empty() if no found
+//   */
+//
+//  public <E> Optional<Integer> binarySearchRecursion(E[] arr, E target){
+//    return Optional.empty();
+//  }
+//
+//  /**
+//   * find the target index in a sorted array
+//   *
+//   * @param arr input array is sorted
+//   * @param target value to be searched
+//   * @return target index or Optional.empty() if not found
+//   */
+//  public <E> Optional <Integer> binarySearchIteration(E[] arr, E target) {
+//    return Optional.empty();
+//  }
 
 
   public Integer binarySearchRecursion(List<Integer>list,Integer target){
