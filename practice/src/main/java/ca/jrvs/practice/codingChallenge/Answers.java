@@ -1,6 +1,9 @@
 package ca.jrvs.practice.codingChallenge;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Stack;
 
 public class Answers {
@@ -96,6 +99,43 @@ public class Answers {
     }
     return left+1;
 
+  }
+
+  /**
+   *
+   * @param nums
+   * @return
+   */
+
+  public int findDuplicateSort(int[]nums){
+    // sort the array so that we only need to find the first occurce of a dublict number
+    Arrays.sort(nums);
+    for(int i=0; i<nums.length-1;i++){
+      // loop through the array
+      if(nums[i]==nums[i+1]){
+        // if we find two numbers that are the same return the number and end the loop
+        return nums[i+1];
+      }
+    }
+    //return -1 if all numbers are unique
+    return -1;
+  }
+
+
+  public int findDuplicateSet(int[]  nums){
+    // set can only have unique numbers
+    Set<Integer> set = new HashSet<Integer>();
+
+    for(int i: nums){
+      // if number is already in the set return the number
+      if(set.contains(i)){
+        return i;
+      }
+      // add the number to the set
+      set.add(i);
+    }
+    // return -1 if all numbers are unique 
+    return -1;
   }
 
 
