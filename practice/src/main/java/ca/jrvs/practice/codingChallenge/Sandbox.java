@@ -8,20 +8,22 @@ import java.util.Random;
 public class Sandbox {
 
   public static void main(String[] args) {
+    Answers answers = new Answers();
 
-    BinarySearch binarySearch = new BinarySearch();
+    int[] ints = {0,0,1,1,1,2,2,3,3,4};
 
-    List<Integer> list = new ArrayList<Integer>();
+    for(int i=0; i<ints.length;i++){
+      System.out.print(ints[i]+" ");
+    };
+    System.out.println("\n");
 
-    list.add(1);
-    list.add(6);
-    list.add(10);
-    list.add(15);
-    list.add(32);
-    list.add(120);
-
-    System.out.println(binarySearch.binarySearchIteration(list,6));
-    System.out.println(binarySearch.binarySearchRecursion(list,10));
+    System.out.println("===========");
+    System.out.println(answers.removeDuplicates(ints));
+    System.out.println("===========");
+    System.out.println("\n");
+    for(int i=0; i<ints.length;i++){
+      System.out.print(ints[i]+" ");
+    };
 
 
   }

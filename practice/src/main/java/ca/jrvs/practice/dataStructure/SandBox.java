@@ -9,7 +9,7 @@ class SandBox {
   public static void main(String args[]) {
     AbstractDataType adt = AbstractDataType.valueOf(true);
     System.out.println(adt.getEnd());
-    System.out.println(adt.subString(0,3).charAt(3));
+    System.out.println(adt.subString(2,4).charAt(0));
     System.out.println(adt.getA());
 
 
