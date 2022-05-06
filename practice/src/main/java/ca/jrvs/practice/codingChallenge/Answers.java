@@ -1,10 +1,13 @@
 package ca.jrvs.practice.codingChallenge;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Answers {
 
@@ -134,9 +137,57 @@ public class Answers {
       // add the number to the set
       set.add(i);
     }
-    // return -1 if all numbers are unique 
+    // return -1 if all numbers are unique
     return -1;
   }
+
+
+  public <K,V> boolean compareMaps(Map<K,V> m1, Map<K,V>m2){
+    // instinct approach
+    AtomicBoolean flagValues = new AtomicBoolean(false);
+    AtomicBoolean flagKeys = new AtomicBoolean(false);
+    m1.values().stream().forEach((v1)-> flagValues.set(m2.containsValue(v1)));
+    m1.keySet().stream().forEach((k1)->flagKeys.set(m2.containsKey(k1)));
+
+    return flagValues.get() && flagKeys.get();
+  }
+  public <K,V> boolean compareMapsEquals(Map<K,V> m1, Map<K,V>m2){
+    return m1.equals(m2);
+  }
+
+
+  /**
+   * 
+   * @param string
+   * @return
+   */
+  public boolean validPalindromPointer(String string){
+    int left=0;
+    int right=string.length()-1;
+
+    while(left<right){
+      while(left<right && this.palindromHelper(string.charAt(left))==false){
+        left++;
+      }
+      while(left<right && this.palindromHelper(string.charAt(right))==false){
+        right--;
+      }
+      if (Character.toUpperCase(string.charAt(left))!=Character.toUpperCase(string.charAt(right))){
+        return false;
+      }
+      left++;
+      right--;
+    }
+    return true;
+  }
+
+  private boolean palindromHelper(char c){
+    return Character.isLetterOrDigit(c);
+  }
+
+
+
+
 
 
 
