@@ -12,9 +12,10 @@ public class Sandbox {
   public static void main(String[] args) {
     Answers answers = new Answers();
 
-    String string = "A man, a plan, a canal: Panama";
+    String string = "aa";
 
     System.out.println(answers.validPalindromPointer(string));
+    boolean ans = answers.validPalindromRecursion(string);
 
 
 

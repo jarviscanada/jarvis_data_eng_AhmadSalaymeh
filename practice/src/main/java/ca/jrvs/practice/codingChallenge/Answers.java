@@ -157,7 +157,7 @@ public class Answers {
 
 
   /**
-   * 
+   *
    * @param string
    * @return
    */
@@ -179,6 +179,33 @@ public class Answers {
       right--;
     }
     return true;
+  }
+
+  public boolean validPalindromRecursion(String string){
+
+    // calls the recursive call
+    return palindromRecursion(string,0,string.length()-1);
+  }
+
+  private boolean palindromRecursion(String string, int left, int right){
+    // the left pointer passes the right that means we reached the middle and the string is a palindrom
+    if (left>right){
+      return true;
+    }
+    // keep going left until we find a letter or number in the string
+    if(left<right && palindromHelper(string.charAt(left))==false){
+      return palindromRecursion(string,left+1,right);
+    }
+    // keep going right until we find a letter or number in the string
+    if(right>left && palindromHelper(string.charAt(right))==false){
+      return palindromRecursion(string,left,right-1);
+    }
+    // if both left and right are a letter or number check if they are the same if not return false
+    if(Character.toUpperCase(string.charAt(left))!=Character.toUpperCase(string.charAt(right))){
+     return false;
+    }
+    //if both left and right the same go to the next two characters in the string
+    return palindromRecursion(string,left+1,right-1);
   }
 
   private boolean palindromHelper(char c){
