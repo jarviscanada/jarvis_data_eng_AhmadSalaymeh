@@ -5,6 +5,7 @@ Technologies that I used to develop this application:
 
 - JDK 8 
 - Docker
+- Maven
 - intellij
 
 
