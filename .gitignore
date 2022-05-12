@@ -1,1 +1,9 @@
+<<<<<<< HEAD
 *.idea
+=======
+# Ignore .idea files and xml
+*.idea
+*.xml
+*.iml
+
+>>>>>>> 6844c73092830ebdf5549288f5b4dd0bf498c894

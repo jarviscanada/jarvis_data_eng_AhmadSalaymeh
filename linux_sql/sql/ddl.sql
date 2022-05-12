@@ -1,40 +1,45 @@
-CREATE TABLE IF NOT EXISTS PUBLIC.host_info (
+CREATE DATABASE host_agent;
+\c host_agent;
+
+CREATE TABLE IF NOT EXISTS host_info (
   id SERIAL NOT NULL,
   hostname VARCHAR NOT NULL,
-  cpu_number INT,
-  cpu_architecture VARCHAR,
-  cpu_mhz DECIMAL,
-  L2_cache INT,
-  total_mem INT,
+  cpu_number INT NOT NULL ,
+  cpu_architecture VARCHAR NOT NULL ,
+  cpu_model     varchar NOT NULL ,
+  cpu_mhz DECIMAL NOT NULL ,
+  L2_cache INT NOT NULL ,
+  total_mem INT NOT NULL ,
   "timestamp" TIMESTAMP NOT NULL,
   PRIMARY KEY(id)
 );
-CREATE TABLE IF NOT EXISTS PUBLIC.host_usage (
+CREATE TABLE IF NOT EXISTS host_usage (
   "timestamp" TIMESTAMP NOT NULL,
   host_id SERIAL NOT NULL,
-  memory_free INT,
-  cpu_idle INT,
-  cpu_kernel INT,
-  disk_io INT,
-  disk_available INT,
+  memory_free INT NOT NULL ,
+  cpu_idle INT NOT NULL ,
+  cpu_kernel INT NOT NULL ,
+  disk_io INT NOT NULL ,
+  disk_available INT NOT NULL ,
+  PRIMARY KEY ("timestamp",host_id),
   FOREIGN KEY(host_id) REFERENCES host_info(id)
 );
-INSERT INTO host_info (
-  hostname, cpu_number, cpu_architecture,
-  cpu_mhz, L2_cache, total_mem, "timestamp"
-)
-values
-  (
-    'spry-framework-236416.internal',
-    1, 'x86_64', 2300.000, 256, 601324,
-    '2019-05-29 16:53:28'
-  );
-INSERT INTO host_usage (
-  "timestamp", host_id, memory_free,
-  cpu_idle, cpu_kernel, disk_io, disk_available
-)
-VALUES
-  (
-    '2019-05-29 16:53:28', 1, 256, 95,
-    0, 0, 31220
-  );
+
+CREATE FUNCTION round5(ts timestamp) RETURNS timestamp AS
+$$
+BEGIN
+    RETURN date_trunc('hour', ts) + date_part('minute', ts):: int / 5 * interval '5 min';
+END;
+$$
+    LANGUAGE PLPGSQL;
+
+CREATE FUNCTION avg_mem_perecentage(total_mem int, memory_free int) RETURNS INT
+    AS
+    $$
+       BEGIN
+            return (round(((total_mem / 1000) - memory_free),2)/(total_mem/1000)) * 100;
+
+       END;
+    $$
+    LANGUAGE PLPGSQL;
+
