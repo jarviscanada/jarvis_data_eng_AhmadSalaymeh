@@ -6,7 +6,7 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-public class HashJMap<K,V> implements JMap<K,V> {
+public class HashJMap<K,V> implements JMap<K,V>  {
 
   /**
    * The default initial capacity - MUST be a power of two.
@@ -198,7 +198,7 @@ public class HashJMap<K,V> implements JMap<K,V> {
     final int hash;
     final K key;
     V value;
-    HashJMap.Node<K, V> next;
+    Node<K, V> next;
 
     Node(int hash, K key, V value, HashJMap.Node<K, V> next) {
       this.hash = hash;
