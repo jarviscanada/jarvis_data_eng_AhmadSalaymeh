@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 *.idea
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 # Ignore .idea files and xml
 *.idea
@@ -10,7 +11,10 @@
 >>>>>>> 6844c73092830ebdf5549288f5b4dd0bf498c894
 =======
 *.iml
-target/
+*/target/
 log/
 out/
 >>>>>>> 3c38617428249e2b972ac4f560937c08c8c19454
+=======
+*.iml
+>>>>>>> 7dbe24a52d2bb44fa1bd0a13137160f98d6600d2
