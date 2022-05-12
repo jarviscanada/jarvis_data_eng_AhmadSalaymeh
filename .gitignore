@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 *.idea
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -18,3 +19,6 @@ out/
 =======
 *.iml
 >>>>>>> 7dbe24a52d2bb44fa1bd0a13137160f98d6600d2
+=======
+.idea
+>>>>>>> 3f184b5383eb3cdfd2921085d6ba71bfc1b900f2
