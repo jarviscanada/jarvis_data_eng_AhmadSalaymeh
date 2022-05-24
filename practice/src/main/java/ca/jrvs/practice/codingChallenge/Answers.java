@@ -1,9 +1,11 @@
 package ca.jrvs.practice.codingChallenge;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
@@ -152,6 +154,7 @@ public class Answers {
     return flagValues.get() && flagKeys.get();
   }
   public <K,V> boolean compareMapsEquals(Map<K,V> m1, Map<K,V>m2){
+
     return m1.equals(m2);
   }
 
@@ -212,16 +215,204 @@ public class Answers {
     return Character.isLetterOrDigit(c);
   }
 
+  public int myAtoi(String s) {
+
+
+    int index = 0;
+    int result = 0;
+    int MIN_INT = -2147483648;
+    int MAX_INT = 2147483647;
+    boolean isNegative = false;
+
+    //if string is empty return 0
+    if (s.length() == 0) {
+      return 0;
+    }
+    //skipping white spaces
+    while (index < s.length() && s.charAt(index) == ' ') {
+      index++;
+    }
+    //getting to check weather or not the first non-space character is a - or +
+    if (index < s.length()) {
+      if (s.charAt(index) == '-') {
+        isNegative = true;
+        index++;
+      } else if (s.charAt(index) == '+') {
+        index++;
+      }
+    }
+    // iterate the string until we reach a non-digit number
+    while (index < s.length() && Character.isDigit(s.charAt(index))) {
+      // subtract ascii number of character by the 0 ascii number
+      // 4 = 52
+      // 0 = 48
+      // digit = 52 - 48 = 4
+      int digit = s.charAt(index) - '0';
+
+
+      // we are ensuring that the number is avoiding any integer overflow
+      // by max_int/10 -> 9 digit (2147483647 -> 214748364)
+      // if result were to be 214748365 and add a 0 to produce 2147483650
+      // this result is now grater then 2147483650 > 214748364 && 2147483647 which will result in a integer overflow
+      // So before we add the last integer we should just return the max_int value.
+      // digit 7 means that if we are adding the last integer (result=214748364) and it was 8 which produces 21474836478 that will result in a overflow
+      // so we will return the MAX_INT instead.
+      if (result > MAX_INT/10 || (result == MAX_INT/10 && digit > 7)) {
+        // if negative is true, result is a negative number else its positive
+        return isNegative ? MIN_INT : MAX_INT;
+      }
+
+      // adding the digits in their correct location
+      result = (result * 10) + digit;
+      index++;
+    }
+
+      // if negative is true, result is a negative number else its positive
+      return isNegative ? -result : result;
+    }
 
 
 
 
+  public boolean containsDuplicate(int[] nums){
 
+    HashMap<Integer,Integer> hashMap = new HashMap<>();
 
+    for (int i=0; i<nums.length; i++){
+      if(!hashMap.containsKey(nums[i])){
+        hashMap.put(nums[i],1);
+      }else {
+        return true;
+      }
+    }
+    return false;
+  }
 
+  public void mergeIntuition(int[] nums1, int m, int[] nums2, int n) {
+    // brute force/intuition
+    // find where the last 0 is in nums1 and set that number to the numbers in nums2
+    // use the sort funciton to sort nums1 array
+    int i=m;
+    int j=0;
+    while(i<m+n){
+      if(nums1[m]==0){
+        nums1[m]=nums2[j];
+        j++;
+      }
+      i++;
+  }
+    Arrays.sort(nums1);
+  }
 
+  public void merge(int[]nums1,int m , int[] nums2, int n){
+    // set the last pointer in nums1
+    int lastIndex = m+n-1;
 
+    // walk through both arrays
+    while(m>0 && n>0){
 
+      //if last number in nums1 is bigger then the last number in nums2
+      // set the element in m-1 to the last place in nums1 and move the pointer m down by 1
+      // else set the last element in nums1 to the element in nums2
+      if (nums1[m-1]>nums2[n-1]){
+        nums1[lastIndex]=nums1[m-1];
+        m--;
+      }else{
+        nums1[lastIndex]=nums2[n-1];
+        n--;
+      }
+      lastIndex--;
+    }
+
+    // any left-over number in nums2 will be added to nums1 at the start of nums1
+
+    while (n>0){
+      nums1[lastIndex]=nums2[n-1];
+      n --;
+      lastIndex--;
+    }
+  }
+  public boolean rotateString(String s, String goal) {
+
+    //because we are going to end in a circle as we keep shifitng, we can create a string where its pattern is repeated twice
+    // this will have all the number of shifts that could occur and if the pattern of goal exists in this fullString we return true
+    // else it will be false.
+    String fullString = s +s;
+
+    return (s.length()==goal.length()) &&fullString.contains(goal);
+
+  }
+
+  public boolean isDigit(String s){
+    int i=0;
+    while(i < s.length()){
+      if(!Character.isDigit(s.charAt(i))){
+        return false;
+      }
+      i++;
+    }
+    return true;
+  }
+  public boolean isDigitAscii(String s){
+    int first='0';
+    int last ='9';
+    int i=0;
+    while(i<s.length()){
+      int asciiNumber=s.charAt(i);
+      if((asciiNumber>=first && asciiNumber<=last)!=true){
+        return false;
+      }
+      i++;
+    }
+    return true;
+  }
+  public boolean validAnagram(String s,String t){
+    if(s.length()!=t.length()){
+      return false;
+    }
+    char[] tempS= s.toCharArray();
+    char[] tempT = t.toCharArray();
+    Arrays.sort(tempS);
+    Arrays.sort(tempT);
+
+    return Arrays.equals(tempS,tempT);
+  }
+  public boolean validAnagramTable(String s,String t){
+    if(s.length()!=t.length()){
+      return false;
+    }
+    int[] table = new int[26];
+
+    for(int i=0; i<s.length();i++){
+      table[s.charAt(i) - 'a']++;
+    }
+    for (int i=0; i<t.length(); i++){
+      table[t.charAt(i)-'a']--;
+      if(table[t.charAt(i)-'a']<0){
+        return false;
+      }
+    }
+
+    return true;
+  }
+  public ListNode remove(ListNode head,int n){
+    ListNode dummy = new ListNode(0,head);
+    ListNode left = dummy;
+    ListNode right = head;
+    while(n>0 && right!=null){
+      right=right.next;
+      n-=1;
+    }
+
+    while(right!=null){
+      left=left.next;
+      right=right.next;
+    }
+    left.next=left.next.next;
+
+    return dummy.next;
+  }
 
 
 }
+
