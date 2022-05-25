@@ -184,11 +184,16 @@ public class Answers {
     return true;
   }
 
+
+
+
   public boolean validPalindromRecursion(String string){
 
     // calls the recursive call
     return palindromRecursion(string,0,string.length()-1);
   }
+
+
 
   private boolean palindromRecursion(String string, int left, int right){
     // the left pointer passes the right that means we reached the middle and the string is a palindrom
@@ -353,6 +358,7 @@ public class Answers {
     }
     return true;
   }
+
   public boolean isDigitAscii(String s){
     int first='0';
     int last ='9';
@@ -366,6 +372,7 @@ public class Answers {
     }
     return true;
   }
+
   public boolean validAnagram(String s,String t){
     if(s.length()!=t.length()){
       return false;
@@ -377,6 +384,7 @@ public class Answers {
 
     return Arrays.equals(tempS,tempT);
   }
+
   public boolean validAnagramTable(String s,String t){
     if(s.length()!=t.length()){
       return false;
@@ -412,6 +420,11 @@ public class Answers {
 
     return dummy.next;
   }
+
+  final int getInt(int i){
+    return i;
+  }
+
 
 
 }
