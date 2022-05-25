@@ -54,7 +54,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AhmadSalay
 
 
 ## Miscellaneous
-I also like to read books  during my free time, which help me gain new perspectives. I also enjoy working out as this activity allows me to destress and relax. 
+I enjoy to read books during my free time, which help me gain new perspectives. I also enjoy working out as this activity allows me to destress and relax. 
 
 - Fitness: Weight lifting, running, Swimming. 
 - Reading Books: Sci-Fi, Fiction Novels, Self-help
