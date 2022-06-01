@@ -1,8 +1,7 @@
 package ca.jrvs.practice.codingChallenge;
-
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -421,9 +420,200 @@ public class Answers {
     return dummy.next;
   }
 
-  final int getInt(int i){
-    return i;
+
+  public int findLargest(int[] arr){
+
+    int max=arr[0];
+    for(int i=1; i<arr.length;i++){
+      if(arr[i]>max){
+        max=arr[i];
+      }
+    }
+    return max;
   }
+
+  public int findLargest(List<Integer> arr){
+
+    return arr.stream().max(Comparator.comparing(Integer::valueOf)).get();
+    
+  }
+  public int findLargestCollection(List<Integer> arr){
+    return Collections.max(arr);
+  }
+
+  public int findSmallest(int[] arr){
+    int min = arr[0];
+
+    for(int i=1; i<arr.length;i++){
+      if(arr[i]<min){
+        min=arr[i];
+      }
+    }
+    return min;
+  }
+
+  public int findSmallest(List<Integer> arr){
+    return arr.stream().min(Comparator.comparing(Integer::valueOf)).get();
+  }
+
+  public int findSmallestCollection(List<Integer> arr){
+    return Collections.min(arr);
+  }
+
+
+  public int removeElement(int[] nums, int val) {
+        
+
+    int i=0;
+    
+
+    for(int j=0; j< nums.length; j++){
+        if(nums[j]!=val){
+            nums[i]=nums[j];
+            i++;
+        }
+    }
+    return i;
+    }
+
+
+    public HashSet<Character> findDuplicateCharacters(String string){
+
+      HashMap<Character,Integer> hashMap = new HashMap<>();
+      HashSet<Character> chars = new HashSet<>();
+
+      String temp = string.toLowerCase().replace(" ", "");
+
+      for(int i=0; i<temp.length(); i++){
+        if(hashMap.containsKey(temp.charAt(i))){
+          chars.add(temp.charAt(i));
+        }
+        else{
+          hashMap.put(temp.charAt(i), 1); 
+        }
+      }
+
+      return chars;
+    }
+  
+    public String printLetterWithNumber(String input){
+
+      
+  
+      String str = "";
+
+      for(int i=0; i < input.length();i++){
+        if(input.charAt(i)>96){
+          int value = input.charAt(i)-96;
+          str = str + input.charAt(i) + value;
+        }else{
+          int value = input.charAt(i)-64+26;
+          str = str + input.charAt(i) + value;
+        }
+
+
+
+        
+   
+      }
+
+      return str;
+    }
+
+    public ListNode middleNode(ListNode head) {
+        
+      ListNode node = head;
+      
+      //grab the length of the array
+      int index =1;
+      while(node !=null){
+          node = node.next;
+          index++;
+      }
+      
+      
+      //grab the middle number, if its even add 1 to the middle number
+      int middle = 0;
+      if(index%2==0){
+          middle = index/2;
+      }else{
+          middle = (index/2)+1;
+      }
+   
+
+      // set the head to the middle index
+      
+      int nodeIndex = 1;
+      while(head !=null && nodeIndex != middle){
+          head=head.next;
+          nodeIndex++;
+      }
+      
+      return head;
+      
+  }
+
+  public boolean hasCycle(ListNode head) {
+        
+    ListNode slow = head, fast = head;
+    
+    while(fast!=null && fast.next!=null){
+        slow=slow.next;
+        fast=fast.next.next;
+        if(slow == fast){
+            return true;
+        }
+    }
+    return false;
+    
+    
+  }
+
+  public ListNode reverseListItertive(ListNode head) {
+        
+    ListNode prev = null;
+    ListNode curr = head;
+    while (curr !=null){
+        ListNode next = curr.next;
+        curr.next = prev;
+        prev=curr;
+        curr= next;
+    }
+    return prev;
+    
+  }
+  public int countPrimes(int n) {
+        
+    if(n<=2){
+      return 0;
+    }
+    
+    boolean[] primes = new boolean[n];
+    
+    int limit = (int)Math.sqrt(n);
+    
+    
+    for(int i=2; i<=limit; i++){
+        if(primes[i]==false){
+            for(int j=i*i; j<n; j+=i){
+              primes[j]=true;
+            }
+        }
+    }
+    
+    int count=0;
+    
+    for(int i=2; i<n; i++){
+        if(primes[i]==false){
+            count++;
+        }
+    }
+
+    return count;
+    
+}
+
+
 
 
 
