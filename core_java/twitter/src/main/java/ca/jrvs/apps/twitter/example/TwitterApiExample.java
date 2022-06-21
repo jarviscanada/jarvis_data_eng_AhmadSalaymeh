@@ -19,10 +19,10 @@ public class TwitterApiExample {
  
   public static void main (String[] args) throws Exception {
 
-    OAuthConsumer consumer = new CommonsHttpOAuthConsumer("n0UhPMm01m1V92wNFUo1H0NtK", "Uexbsan5e8MpLuLY6W1w2CjTXDD6FGCVCvIng7yUATRqsUllBF");
-    consumer.setTokenWithSecret("1511094511514042371-y4oCBvJPHNkE3uuF8ArXZ6iviQs3j0", "wG8RweBySsJehR1QUEIKscpTvSdGfq8qELBj5ngRih9JM");
+    OAuthConsumer consumer = new CommonsHttpOAuthConsumer("qaKrqzGFzKDIsyicX48Qpmv0d", "lJLLcvwQrALzEozOedxK85t5Fi01qpzteQ75HpwCl8cWsb3H9H");
+    consumer.setTokenWithSecret("1511094511514042371-UKEPrKXnHKegvS9meBLTyWdOtkExcN", "2IfWVQiLhEBOrsveaM9PqjePVaHyiq9GlybLT1jJPf7qE");
     
-    String status = "today is a good day";
+    String status = "restart the project";
     PercentEscaper percentEscaper = new PercentEscaper("", false);
     HttpPost request = new HttpPost("https://api.twitter.com/1.1/statuses/update.json?status="+ percentEscaper.escape(status));
 

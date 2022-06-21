@@ -2,6 +2,9 @@ package ca.jrvs.apps.twitter.model;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Coordinates {
     
     private Float [] coordinates; 

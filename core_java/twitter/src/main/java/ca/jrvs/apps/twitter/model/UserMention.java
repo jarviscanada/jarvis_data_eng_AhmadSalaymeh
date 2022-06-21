@@ -2,11 +2,14 @@ package ca.jrvs.apps.twitter.model;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserMention {
 
-    private int id;
+    private Long id;
     private String id_str;
-    private int[] indices;
+    private Integer[] indices;
     private String name;
     private String screen_name;
 
@@ -14,7 +17,7 @@ public class UserMention {
     public UserMention() {
     }
 
-    public UserMention(int id, String id_str, int[] indices, String name, String screen_name) {
+    public UserMention(Long id, String id_str, Integer[] indices, String name, String screen_name) {
         this.id = id;
         this.id_str = id_str;
         this.indices = indices;
@@ -22,11 +25,11 @@ public class UserMention {
         this.screen_name = screen_name;
     }
 
-    public int getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -38,11 +41,11 @@ public class UserMention {
         this.id_str = id_str;
     }
 
-    public int[] getIndices() {
+    public Integer[] getIndices() {
         return this.indices;
     }
 
-    public void setIndices(int[] indices) {
+    public void setIndices(Integer[] indices) {
         this.indices = indices;
     }
 
@@ -62,7 +65,7 @@ public class UserMention {
         this.screen_name = screen_name;
     }
 
-    public UserMention id(int id) {
+    public UserMention id(Long id) {
         setId(id);
         return this;
     }
@@ -72,7 +75,7 @@ public class UserMention {
         return this;
     }
 
-    public UserMention indices(int[] indices) {
+    public UserMention indices(Integer[] indices) {
         setIndices(indices);
         return this;
     }
@@ -95,7 +98,7 @@ public class UserMention {
             return false;
         }
         UserMention userMention = (UserMention) o;
-        return id == userMention.id && Objects.equals(id_str, userMention.id_str) && Objects.equals(indices, userMention.indices) && Objects.equals(name, userMention.name) && Objects.equals(screen_name, userMention.screen_name);
+        return Objects.equals(id, userMention.id) && Objects.equals(id_str, userMention.id_str) && Objects.equals(indices, userMention.indices) && Objects.equals(name, userMention.name) && Objects.equals(screen_name, userMention.screen_name);
     }
 
     @Override
@@ -114,6 +117,5 @@ public class UserMention {
             "}";
     }
 
-    
-    
+
 }

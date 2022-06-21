@@ -2,26 +2,28 @@ package ca.jrvs.apps.twitter.model;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Hashtag {
     
-    private int[] indices;
+    private Integer[] indices;
     private String text;
-
 
 
     public Hashtag() {
     }
 
-    public Hashtag(int[] indices, String text) {
+    public Hashtag(Integer[] indices, String text) {
         this.indices = indices;
         this.text = text;
     }
 
-    public int[] getIndices() {
+    public Integer[] getIndices() {
         return this.indices;
     }
 
-    public void setIndices(int[] indices) {
+    public void setIndices(Integer[] indices) {
         this.indices = indices;
     }
 
@@ -33,7 +35,7 @@ public class Hashtag {
         this.text = text;
     }
 
-    public Hashtag indices(int[] indices) {
+    public Hashtag indices(Integer[] indices) {
         setIndices(indices);
         return this;
     }
@@ -66,6 +68,8 @@ public class Hashtag {
             ", text='" + getText() + "'" +
             "}";
     }
+
+
 
 
 }
