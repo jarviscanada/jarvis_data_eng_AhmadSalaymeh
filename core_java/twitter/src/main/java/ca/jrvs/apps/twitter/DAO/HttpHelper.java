@@ -1,4 +1,4 @@
-package ca;
+package ca.jrvs.apps.twitter.DAO;
 
 import java.net.URI;
 import org.apache.http.HttpResponse;
@@ -11,7 +11,10 @@ public interface HttpHelper {
    * @param uri
    * @return
    */
-  HttpResponse httpPost(URI uri);
+    default HttpResponse httpPost(URI uri) {
+    // TODO Auto-generated method stub
+    return null;
+}
 
   /**
    * Execute a HTTP Get call
