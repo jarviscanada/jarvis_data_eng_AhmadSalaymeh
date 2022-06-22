@@ -88,7 +88,7 @@ public class Tweet {
 
   @JsonProperty("id_str")
   public String getId_str() {
-    return id_str;
+    return this.id_str;
   }
 
   @JsonProperty("id_str")

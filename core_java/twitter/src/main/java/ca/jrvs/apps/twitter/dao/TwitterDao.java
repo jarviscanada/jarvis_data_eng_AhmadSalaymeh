@@ -34,6 +34,10 @@ public class TwitterDao implements CrdDao<Tweet,String> {
     }
 
 
+    public TwitterDao() {
+    }
+
+
     @Override
     public Tweet create(Tweet tweet) {
         // TODO Auto-generated method stub
@@ -50,9 +54,16 @@ public class TwitterDao implements CrdDao<Tweet,String> {
     }
 
     private URI getPostUri(Tweet tweet) throws URISyntaxException {
+
         PercentEscaper percentEscaper = new PercentEscaper("", false);
         String status = percentEscaper.escape(tweet.getText());
-        String uri_str = API_BASE_URI + POST_PATH + QUERY_SYM + "status"+EQUAL+status;
+
+        String geoLocation = AMPERSAND+"long"+EQUAL+tweet.getCoordinates().getCoordinates().get(0)+AMPERSAND+"lat"+EQUAL+tweet.getCoordinates().getCoordinates().get(1)+AMPERSAND+"type"+EQUAL+tweet.getCoordinates().getType();
+
+        String uri_str = API_BASE_URI + POST_PATH + QUERY_SYM + "status"+EQUAL+status+geoLocation;
+
+        //https://api.twitter.com/1.1/statuses/update.json?status=helloworldasdaadsasda&long=12.55&lat=37.7821120598956&type=Point
+
         URI uri = new URI(uri_str);
         return uri;
     }
@@ -100,7 +111,7 @@ public class TwitterDao implements CrdDao<Tweet,String> {
 
 
     private URI getDeleteUri(String id) throws URISyntaxException {
-        String uri_str = API_BASE_URI+DELETE_PATH+id+".json";
+        String uri_str = "https://api.twitter.com/1.1/statuses/destroy/"+id+".json";
         URI uri = new URI(uri_str);
 
         return uri;

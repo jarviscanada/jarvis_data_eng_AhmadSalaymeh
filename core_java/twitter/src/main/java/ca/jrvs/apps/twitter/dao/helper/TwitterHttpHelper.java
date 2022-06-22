@@ -22,13 +22,14 @@ public class TwitterHttpHelper implements HttpHelper{
 
 
     private OAuthConsumer consumer;
-    private HttpClient HttpClient;
+    private HttpClient httpClient;
 
 
-    public TwitterHttpHelper(String consumerKey, String consumerSecret, String accessToken, String tokenSecret){
-        this.consumer= new CommonsHttpOAuthConsumer(consumerKey, consumerSecret);
-        this.consumer.setTokenWithSecret(accessToken, tokenSecret);
-        this.HttpClient = new DefaultHttpClient();
+
+    public TwitterHttpHelper(String consumerKey,String consumerSecret,String accessToken,String tokenSecret) {
+        consumer = new CommonsHttpOAuthConsumer(consumerKey, consumerSecret);
+        consumer.setTokenWithSecret(accessToken, tokenSecret);
+        httpClient = new DefaultHttpClient();
     }
 
     @Override
@@ -57,14 +58,19 @@ public class TwitterHttpHelper implements HttpHelper{
         if(method == HttpMethod.GET){
             HttpGet request = new HttpGet(uri);
             consumer.sign(request);
-            return HttpClient.execute(request);
+            return httpClient.execute(request);
+
+
         }else if (method == HttpMethod.POST){
+            
             HttpPost request = new HttpPost(uri);
             if(stringEntity !=null){
                 request.setEntity(stringEntity);
             }
             consumer.sign(request);
-            return HttpClient.execute(request);
+            return httpClient.execute(request);
+
+
         }else{
             throw new IllegalArgumentException("unknown Http Method: "+ method.name());
         }

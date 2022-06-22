@@ -10,6 +10,7 @@ import org.junit.Test;
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
 import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelper;
 import ca.jrvs.apps.twitter.model.Tweet;
+import ca.jrvs.apps.twitter.util.TwitterUtil;
 
 public class TwitterDaoIntTest {
     
@@ -17,10 +18,10 @@ public class TwitterDaoIntTest {
 
     @Before
     public void setup(){
-        String consumerKey = "qaKrqzGFzKDIsyicX48Qpmv0d";
-        String consumerSecret = "lJLLcvwQrALzEozOedxK85t5Fi01qpzteQ75HpwCl8cWsb3H9H";
-        String accessToken = "1511094511514042371-UKEPrKXnHKegvS9meBLTyWdOtkExcN";
-        String tokenSecret =  "2IfWVQiLhEBOrsveaM9PqjePVaHyiq9GlybLT1jJPf7qE";
+        String consumerKey = "cWLeTaYYkXv7GHb816yeuoIRO";
+        String consumerSecret = "l6pdXvNHfpYMKpveQQb42yWQs1ZA64FxNOgA5tksruNvBSyzkE";
+        String accessToken = "1511094511514042371-sE4PFrhtCkBRNZjO2NNve8nlRcEqsN";
+        String tokenSecret =  "ZegvEd3cpx6o2DZq3YuSGJwxuO1WwIWWUE34u35HwFxA5";
 
         HttpHelper httpHelper = new TwitterHttpHelper(consumerKey, consumerSecret, accessToken, tokenSecret);
         
@@ -29,15 +30,20 @@ public class TwitterDaoIntTest {
 
     @Test
     public void create() throws Exception{
-        String hastTag = "#abc #test";
-        String text ="@someone sometext "+hastTag+" "+System.currentTimeMillis();
+        String hastTag = "#abc";
+        String text ="sometext 1234sds125 "+hastTag+" "+System.currentTimeMillis();
 
-        Tweet tweet = new Tweet(text);
+        Double lon = 1d;
+        Double lat = -1d;
+
+        Tweet tweet = TwitterUtil.buildTweet(text, lon, lat);
+
         Tweet reposnse = dao.create(tweet);
 
         assertEquals(text, reposnse.getText());
-        // assertNotNull(tweet.getCoordinates());
-        // assertTrue(hastTag.contains(tweet.getEntitles().getHashtags().get(0).getText()));
+        assertNotNull(tweet.getCoordinates());
+        assertTrue(hastTag.contains(reposnse.getEntitles().getHashtags().get(0).getText()));
+        
     }
 
     @Test 
@@ -53,11 +59,19 @@ public class TwitterDaoIntTest {
 
     @Test
     public void delete() throws Exception{
-        String id = "1539324352889593856";
-        Tweet tweet = dao.deleteById(id);
+        String text ="this is test tweet "+System.currentTimeMillis();
 
-        assertNotNull(tweet);
-        assertEquals(id, tweet.getId_str());
+        Double lon = 1d;
+        Double lat = -1d;
+
+        Tweet tweetTemp = TwitterUtil.buildTweet(text, lon, lat);
+        Tweet temp = dao.create(tweetTemp);
+
+        String id = temp.getId_str();
+        Tweet deleted = dao.deleteById(id);
+
+        
+        assertEquals(id, deleted.getId_str());
     }
 
 }

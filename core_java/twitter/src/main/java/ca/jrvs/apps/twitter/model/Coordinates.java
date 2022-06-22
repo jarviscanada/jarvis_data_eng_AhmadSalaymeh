@@ -1,67 +1,44 @@
 package ca.jrvs.apps.twitter.model;
 
+import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+    "coordinates",
+    "type"
+})
 public class Coordinates {
     
-    private Float [] coordinates; 
+    @JsonProperty("coordinates")
 
+    private List<Double> coordinates; 
+
+    @JsonProperty("type")
     private String type;
 
-
-
-    public Coordinates() {
+    @JsonProperty("coordinates")
+    public List<Double> getCoordinates(){
+        return coordinates;
     }
 
-    public Coordinates(Float[] coordinates, String type) {
-        this.coordinates = coordinates;
-        this.type = type;
+    @JsonProperty("coordinates")
+    public void setCoordinates(List<Double> coordinates){
+        this.coordinates=coordinates;
     }
 
-    public Float[] getCoordinates() {
-        return this.coordinates;
+    @JsonProperty("type")
+    public String getType(){
+        return type;
     }
-
-    public void setCoordinates(Float[] coordinates) {
-        this.coordinates = coordinates;
+    @JsonProperty("type")
+    public void setType(String type){
+        this.type=type;
     }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Coordinates coordinates(Float[] coordinates) {
-        setCoordinates(coordinates);
-        return this;
-    }
-
-    public Coordinates type(String type) {
-        setType(type);
-        return this;
-    }
-
-
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(coordinates, type);
-    }
-
-    @Override
-    public String toString() {
-        return "{" +
-            " coordinates='" + getCoordinates() + "'" +
-            ", type='" + getType() + "'" +
-            "}";
-    }
-
 
 
 

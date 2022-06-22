@@ -19,12 +19,17 @@ public class TwitterApiExample {
  
   public static void main (String[] args) throws Exception {
 
-    OAuthConsumer consumer = new CommonsHttpOAuthConsumer("qaKrqzGFzKDIsyicX48Qpmv0d", "lJLLcvwQrALzEozOedxK85t5Fi01qpzteQ75HpwCl8cWsb3H9H");
-    consumer.setTokenWithSecret("1511094511514042371-UKEPrKXnHKegvS9meBLTyWdOtkExcN", "2IfWVQiLhEBOrsveaM9PqjePVaHyiq9GlybLT1jJPf7qE");
+    String consumerKey = "cWLeTaYYkXv7GHb816yeuoIRO";
+    String consumerSecret = "l6pdXvNHfpYMKpveQQb42yWQs1ZA64FxNOgA5tksruNvBSyzkE";
+    String accessToken = "1511094511514042371-sE4PFrhtCkBRNZjO2NNve8nlRcEqsN";
+    String tokenSecret =  "ZegvEd3cpx6o2DZq3YuSGJwxuO1WwIWWUE34u35HwFxA5";
+
+    OAuthConsumer consumer = new CommonsHttpOAuthConsumer(consumerKey, consumerSecret);
+    consumer.setTokenWithSecret(accessToken, tokenSecret);
     
-    String status = "restart the project";
+    String status = "restart the projectasd123";
     PercentEscaper percentEscaper = new PercentEscaper("", false);
-    HttpPost request = new HttpPost("https://api.twitter.com/1.1/statuses/update.json?status="+ percentEscaper.escape(status));
+    HttpPost request = new HttpPost("https://api.twitter.com/1.1/statuses/update.json?status="+ percentEscaper.escape(status)+"&long=12.55&lat=37.7821120598956&type=Point");
 
     consumer.sign(request);
     System.out.println("http request header");
