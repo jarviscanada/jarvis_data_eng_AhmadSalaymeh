@@ -17,7 +17,7 @@ public class TwitterDao implements CrdDao<Tweet,String> {
     private static final String API_BASE_URI = "https://api.twitter.com";
     private static final String POST_PATH = "/1.1/statuses/update.json";
     private static final String SHOW_PATH = "/1.1/statuses/show.json";
-    private static final String DELETE_PATH="/1.1/statuses/destroy";
+    private static final String DELETE_PATH="/1.1/statuses/destroy/";
 
     private static final String QUERY_SYM="?";
     private static final String AMPERSAND="&";
@@ -111,8 +111,9 @@ public class TwitterDao implements CrdDao<Tweet,String> {
 
 
     private URI getDeleteUri(String id) throws URISyntaxException {
-        String uri_str = "https://api.twitter.com/1.1/statuses/destroy/"+id+".json";
+        String uri_str = API_BASE_URI+DELETE_PATH+id+".json";
         URI uri = new URI(uri_str);
+     
 
         return uri;
     }
