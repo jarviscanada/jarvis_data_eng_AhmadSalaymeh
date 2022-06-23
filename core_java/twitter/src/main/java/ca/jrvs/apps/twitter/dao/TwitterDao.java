@@ -1,8 +1,9 @@
 package ca.jrvs.apps.twitter.dao;
 
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
-import ca.jrvs.apps.twitter.example.JsonParserExample;
 import ca.jrvs.apps.twitter.model.Tweet;
+import ca.jrvs.apps.twitter.util.JsonParser;
+
 import com.google.gdata.util.common.base.PercentEscaper;
 import java.io.IOException;
 import java.net.URI;
@@ -62,7 +63,6 @@ public class TwitterDao implements CrdDao<Tweet,String> {
 
         String uri_str = API_BASE_URI + POST_PATH + QUERY_SYM + "status"+EQUAL+status+geoLocation;
 
-        //https://api.twitter.com/1.1/statuses/update.json?status=helloworldasdaadsasda&long=12.55&lat=37.7821120598956&type=Point
 
         URI uri = new URI(uri_str);
         return uri;
@@ -124,7 +124,7 @@ public class TwitterDao implements CrdDao<Tweet,String> {
         int status = response.getStatusLine().getStatusCode();
         if(status != expectedStatusCode){
             try{
-                System.out.println(EntityUtils.toString(response.getEntity()));
+                EntityUtils.toString(response.getEntity());
             }catch(IOException e){
                 System.out.println("response has no entity");
             }
@@ -141,7 +141,7 @@ public class TwitterDao implements CrdDao<Tweet,String> {
         }
         
         try{
-            tweet = JsonParserExample.toObjectFromJson(jsonStr,Tweet.class);
+            tweet = JsonParser.toObjectFromJson(jsonStr,Tweet.class);
 
         }catch(IOException e){
             throw new RuntimeException("Unable to conver JSON str to Object", e);

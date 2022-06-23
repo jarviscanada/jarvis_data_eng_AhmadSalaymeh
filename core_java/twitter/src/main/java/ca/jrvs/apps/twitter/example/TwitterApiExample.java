@@ -27,17 +27,17 @@ public class TwitterApiExample {
     OAuthConsumer consumer = new CommonsHttpOAuthConsumer(consumerKey, consumerSecret);
     consumer.setTokenWithSecret(accessToken, tokenSecret);
     
-    String status = "restart the projectasd123";
+    String status = "hello world testing something to see ";
     PercentEscaper percentEscaper = new PercentEscaper("", false);
     HttpPost request = new HttpPost("https://api.twitter.com/1.1/statuses/update.json?status="+ percentEscaper.escape(status)+"&long=12.55&lat=37.7821120598956&type=Point");
 
     consumer.sign(request);
     System.out.println("http request header");
-    Arrays.stream(request.getAllHeaders()).forEach(System.out::println);
+    //Arrays.stream(request.getAllHeaders()).forEach(System.out::println);
 
     HttpClient httpClient = HttpClientBuilder.create().build();
     HttpResponse response = httpClient.execute(request);
-    System.out.println(EntityUtils.toString(response.getEntity()));
+    //System.out.println(EntityUtils.toString(response.getEntity()));
     
     
   }

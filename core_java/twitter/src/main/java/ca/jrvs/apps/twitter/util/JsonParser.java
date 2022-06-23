@@ -1,4 +1,4 @@
-package ca.jrvs.apps.twitter.example;
+package ca.jrvs.apps.twitter.util;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 
 import ca.jrvs.apps.twitter.example.dto.Company;
 
-public class JsonParserExample {
+public class JsonParser {
     
     public static String toJson(Object object, boolean prettyJson, boolean includeNullValues) throws JsonProcessingException{
 
