@@ -54,7 +54,7 @@ public class TwitterServiceIntTest {
         Tweet tweetInValidLat2 = TwitterUtil.buildTweet("this is service test"+System.currentTimeMillis(), -1d, -92d);
 
 
-        assertEquals(tweetValid,service.postTweet(tweetValid));
+        assertEquals(tweetValid.getText(),service.postTweet(tweetValid).getText());
 
         assertNull("expected Null: Reason Characters > 140 : ",service.postTweet(tweetInValidStatus));
         assertNull("expected Null: Reason Longtitude > 180 ",service.postTweet(tweetInValidLong));
@@ -91,8 +91,6 @@ public class TwitterServiceIntTest {
         String[] idsUnValid = {"1234ABC","ABC123"};
 
         List<Tweet> deletedTweets = service.deleteTweets(ids);
-
-
 
         assertEquals(tweetValid1.getId_str(), deletedTweets.get(0).getId_str());
         assertEquals(tweetValid2.getId_str(), deletedTweets.get(1).getId_str());

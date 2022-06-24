@@ -79,6 +79,7 @@ public class TwitterService implements Service {
 
     private boolean validateID(String id) {
         Matcher m = Pattern.compile("[0-9]+").matcher(id);
+        System.out.println(id);
         return m.matches();
     }
 
