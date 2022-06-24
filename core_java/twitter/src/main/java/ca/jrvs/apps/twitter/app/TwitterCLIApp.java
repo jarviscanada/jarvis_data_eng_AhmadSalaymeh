@@ -1,6 +1,13 @@
 package ca.jrvs.apps.twitter.app;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Date;
 import java.util.List;
+import java.util.Properties;
+
+import org.hibernate.validator.internal.util.privilegedactions.GetClassLoader;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -22,11 +29,21 @@ public class TwitterCLIApp {
     private Controller controller;
 
 
+
     public TwitterCLIApp(Controller controller ){
         this.controller = controller;
     }
+    
 
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws IOException {
+
+        
+        Properties prop = new Properties();
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        InputStream inputStream = classLoader.getResourceAsStream("/config.properties");
+        prop.load(inputStream);
+        
         
         String consumerKey = "cWLeTaYYkXv7GHb816yeuoIRO";
         String consumerSecret = "l6pdXvNHfpYMKpveQQb42yWQs1ZA64FxNOgA5tksruNvBSyzkE";
@@ -39,7 +56,9 @@ public class TwitterCLIApp {
         Controller controller = new TwitterController(service);
         TwitterCLIApp app = new TwitterCLIApp(controller);
 
+        
         app.run(args);
+       
     }
 
 
