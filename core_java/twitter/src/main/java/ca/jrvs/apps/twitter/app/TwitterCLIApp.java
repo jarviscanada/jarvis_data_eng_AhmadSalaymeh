@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Properties;
 
 import org.hibernate.validator.internal.util.privilegedactions.GetClassLoader;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -22,6 +24,13 @@ import ca.jrvs.apps.twitter.service.Service;
 import ca.jrvs.apps.twitter.service.TwitterService;
 import ca.jrvs.apps.twitter.util.JsonParser;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
+
+
+
+
+@Component
 public class TwitterCLIApp {
 
     public static final String USAGE="USAGE: TwitterCLIApp post|show|delete [options]";
@@ -30,6 +39,7 @@ public class TwitterCLIApp {
 
 
 
+    @Autowired
     public TwitterCLIApp(Controller controller ){
         this.controller = controller;
     }

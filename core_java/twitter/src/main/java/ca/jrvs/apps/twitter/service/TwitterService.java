@@ -7,12 +7,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import ca.jrvs.apps.twitter.dao.CrdDao;
 import ca.jrvs.apps.twitter.model.Tweet;
 import ca.jrvs.apps.twitter.util.JsonParser;
 
+
+
+@org.springframework.stereotype.Service
 public class TwitterService implements Service {
     
     
@@ -21,6 +26,8 @@ public class TwitterService implements Service {
     private Double MAX_LONGITUDE = 180.0;
     private Double MAX_LATITUDE = 90.0;
 
+
+    @Autowired
     public TwitterService(CrdDao dao){
         this.dao=dao;
     }
