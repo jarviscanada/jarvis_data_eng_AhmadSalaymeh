@@ -8,9 +8,10 @@ import org.springframework.util.StringUtils;
 
 import ca.jrvs.apps.twitter.model.Tweet;
 import ca.jrvs.apps.twitter.service.Service;
+
 import ca.jrvs.apps.twitter.util.TwitterUtil;
 
-
+@org.springframework.stereotype.Controller
 public class TwitterController implements Controller{
 
     private static final String COORD_SEP=":";
@@ -18,6 +19,8 @@ public class TwitterController implements Controller{
     private Service service;
 
   
+
+    @Autowired
     public TwitterController(Service service){
         this.service=service;
     }
@@ -48,6 +51,7 @@ public class TwitterController implements Controller{
         Tweet postTweet = TwitterUtil.buildTweet(tweet_txt, lon, lat);
 
         return service.postTweet(postTweet);
+       
     }
 
     @Override
@@ -61,6 +65,7 @@ public class TwitterController implements Controller{
         String id_String= args[1];
         
         return service.showTweet(id_String, null);
+        // return null;
     }
 
     @Override
@@ -78,6 +83,7 @@ public class TwitterController implements Controller{
         
 
         return service.deleteTweets(args2);
+     
 
     }
     

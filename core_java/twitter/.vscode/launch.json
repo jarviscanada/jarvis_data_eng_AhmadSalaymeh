@@ -9,6 +9,20 @@
             "name": "Launch TwitterCLIComponentScan",
             "request": "launch",
             "mainClass": "ca.jrvs.apps.twitter.spring.TwitterCLIComponentScan",
+            "projectName": "java_apps"
+        },
+        {
+            "type": "java",
+            "name": "Launch TwitterCLIApp",
+            "request": "launch",
+            "mainClass": "ca.jrvs.apps.twitter.app.TwitterCLIApp",
+            "projectName": "twitter"
+        },
+        {
+            "type": "java",
+            "name": "Launch TwitterCLIComponentScan",
+            "request": "launch",
+            "mainClass": "ca.jrvs.apps.twitter.spring.TwitterCLIComponentScan",
             "projectName": "twitter"
         },
         {

@@ -5,13 +5,16 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import ca.jrvs.apps.twitter.dao.CrdDao;
+import ca.jrvs.apps.twitter.dao.TwitterDao;
 import ca.jrvs.apps.twitter.model.Tweet;
 
 
 
 
-
+@org.springframework.stereotype.Service
 public class TwitterService implements Service {
     
     
@@ -19,6 +22,7 @@ public class TwitterService implements Service {
 
     private Double MAX_LONGITUDE = 180.0;
     private Double MAX_LATITUDE = 90.0;
+
 
 
     @Autowired
@@ -41,6 +45,7 @@ public class TwitterService implements Service {
         }
 
         return (Tweet) dao.findById(id);
+    
         
     }
   
@@ -73,6 +78,7 @@ public class TwitterService implements Service {
         }
 
         return (Tweet) dao.create(tweet);
+        
 
 
     }

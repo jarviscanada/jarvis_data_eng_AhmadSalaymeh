@@ -1,6 +1,7 @@
 package ca.jrvs.apps.twitter.dao;
 
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
+import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelper;
 import ca.jrvs.apps.twitter.model.Tweet;
 import ca.jrvs.apps.twitter.util.JsonParser;
 
@@ -11,11 +12,12 @@ import java.net.URISyntaxException;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 
 
-
+@Component
 public class TwitterDao implements CrdDao<Tweet,String> {
 
 
@@ -33,14 +35,14 @@ public class TwitterDao implements CrdDao<Tweet,String> {
     private HttpHelper httpHelper;
 
 
-  
+    @Autowired
     public TwitterDao(HttpHelper httpHelper){
         this.httpHelper=httpHelper;
     }
 
 
-    public TwitterDao() {
-    }
+    // public TwitterDao() {
+    // }
 
 
     @Override

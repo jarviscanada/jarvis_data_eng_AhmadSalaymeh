@@ -15,7 +15,7 @@ import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelper;
 import ca.jrvs.apps.twitter.service.Service;
 import ca.jrvs.apps.twitter.service.TwitterService;
 
-@Configuration
+//@Configuration
 public class TwitterCLIBean {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(TwitterCLIBean.class);

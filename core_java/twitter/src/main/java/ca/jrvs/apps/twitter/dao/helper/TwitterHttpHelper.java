@@ -14,21 +14,37 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
 
 
-
+@Component
 public class TwitterHttpHelper implements HttpHelper{
 
 
 
     private OAuthConsumer consumer;
     private HttpClient httpClient;
+    
+    private String consumerKey;
+    private String consumerSecret;
+    private String accessToken;
+    private String tokenSecret;
 
 
-
+    @Autowired
+    public TwitterHttpHelper(){
+      this.consumerKey=System.getenv("consumerKey");
+      this.consumerSecret=System.getenv("consumerSecret");
+      this.accessToken=System.getenv("accessToken");
+      this.tokenSecret=System.getenv("tokenSecret");
+      consumer = new CommonsHttpOAuthConsumer(consumerKey, consumerSecret);
+      consumer.setTokenWithSecret(accessToken, tokenSecret);
+      httpClient = new DefaultHttpClient();
+    }
+    
     public TwitterHttpHelper(String consumerKey,String consumerSecret,String accessToken,String tokenSecret) {
         consumer = new CommonsHttpOAuthConsumer(consumerKey, consumerSecret);
         consumer.setTokenWithSecret(accessToken, tokenSecret);

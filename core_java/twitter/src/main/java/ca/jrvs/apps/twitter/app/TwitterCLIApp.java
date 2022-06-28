@@ -18,10 +18,10 @@ import ca.jrvs.apps.twitter.controller.TwitterController;
 import ca.jrvs.apps.twitter.dao.CrdDao;
 import ca.jrvs.apps.twitter.dao.TwitterDao;
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
-import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelper;
+// import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelper;
 import ca.jrvs.apps.twitter.model.Tweet;
 import ca.jrvs.apps.twitter.service.Service;
-import ca.jrvs.apps.twitter.service.TwitterService;
+// import ca.jrvs.apps.twitter.service.TwitterService;
 import ca.jrvs.apps.twitter.util.JsonParser;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ import org.springframework.util.StringUtils;
 
 
 
-
+@Component
 public class TwitterCLIApp {
 
     public static final String USAGE="USAGE: TwitterCLIApp post|show|delete [options]";
@@ -39,42 +39,42 @@ public class TwitterCLIApp {
 
 
 
-  
+    @Autowired
     public TwitterCLIApp(Controller controller ){
         this.controller = controller;
     }
     
 
 
-    public static void main(String[] args) throws IOException {
+    // public static void main(String[] args) throws IOException {
 
         
-        Properties prop = new Properties();
-        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream("/config.properties");
-        prop.load(inputStream);
+    //     Properties prop = new Properties();
+    //     ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+    //     InputStream inputStream = classLoader.getResourceAsStream("/config.properties");
+    //     prop.load(inputStream);
         
 
-        String consumerKey = System.getenv("consumerKey");
-        String consumerSecret = System.getenv("consumerSecret");
-        String accessToken = System.getenv("accessToken");
-        String tokenSecret = System.getenv("tokenSecret");
+    //     String consumerKey = System.getenv("consumerKey");
+    //     String consumerSecret = System.getenv("consumerSecret");
+    //     String accessToken = System.getenv("accessToken");
+    //     String tokenSecret = System.getenv("tokenSecret");
 
-        HttpHelper httpHelper = new TwitterHttpHelper(consumerKey, consumerSecret, accessToken, tokenSecret);
-        CrdDao dao = new TwitterDao(httpHelper);
-        Service service = new TwitterService(dao);
-        Controller controller = new TwitterController(service);
-        TwitterCLIApp app = new TwitterCLIApp(controller);
+    //     HttpHelper httpHelper = new TwitterHttpHelper(consumerKey, consumerSecret, accessToken, tokenSecret);
+    //     CrdDao dao = new TwitterDao(httpHelper);
+    //     Service service = new TwitterService(dao);
+    //     Controller controller = new TwitterController(service);
+    //     TwitterCLIApp app = new TwitterCLIApp(controller);
 
-        System.out.println(consumerKey);
-        System.out.println(consumerSecret);
-        System.out.println(accessToken);
-        System.out.println(tokenSecret);
+    //     System.out.println(consumerKey);
+    //     System.out.println(consumerSecret);
+    //     System.out.println(accessToken);
+    //     System.out.println(tokenSecret);
 
         
-        app.run(args);
+    //     app.run(args);
        
-    }
+    // }
 
 
     public void run(String[] args){
