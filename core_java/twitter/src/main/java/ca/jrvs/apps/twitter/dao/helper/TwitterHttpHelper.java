@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 
 
 
-@Component
+
 public class TwitterHttpHelper implements HttpHelper{
 
 
@@ -29,7 +29,6 @@ public class TwitterHttpHelper implements HttpHelper{
 
 
 
-    @Autowired
     public TwitterHttpHelper(String consumerKey,String consumerSecret,String accessToken,String tokenSecret) {
         consumer = new CommonsHttpOAuthConsumer(consumerKey, consumerSecret);
         consumer.setTokenWithSecret(accessToken, tokenSecret);

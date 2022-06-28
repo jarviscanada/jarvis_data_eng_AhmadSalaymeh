@@ -1,23 +1,17 @@
 package ca.jrvs.apps.twitter.service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-
 import ca.jrvs.apps.twitter.dao.CrdDao;
 import ca.jrvs.apps.twitter.model.Tweet;
-import ca.jrvs.apps.twitter.util.JsonParser;
 
 
 
-@org.springframework.stereotype.Service
+
+
 public class TwitterService implements Service {
     
     

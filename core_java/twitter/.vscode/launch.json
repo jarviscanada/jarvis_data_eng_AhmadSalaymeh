@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch TwitterCLIComponentScan",
+            "request": "launch",
+            "mainClass": "ca.jrvs.apps.twitter.spring.TwitterCLIComponentScan",
+            "projectName": "twitter"
+        },
+        {
+            "type": "java",
+            "name": "Launch TwitterCLIBean",
+            "request": "launch",
+            "mainClass": "ca.jrvs.apps.twitter.spring.TwitterCLIBean",
+            "projectName": "twitter"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"

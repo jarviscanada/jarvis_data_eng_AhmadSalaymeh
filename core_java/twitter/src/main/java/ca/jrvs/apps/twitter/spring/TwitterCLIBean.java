@@ -17,41 +17,36 @@ import ca.jrvs.apps.twitter.service.TwitterService;
 
 @Configuration
 public class TwitterCLIBean {
-
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(TwitterCLIBean.class);
         TwitterCLIApp app = context.getBean(TwitterCLIApp.class);
         app.run(args);
     }
 
-
     @Bean
-    public TwitterCLIApp twitterCLIBean(Controller controller){
+    public TwitterCLIApp twitterCLIApp(Controller controller){
         return new TwitterCLIApp(controller);
     }
-
     @Bean
-    public Controller controller (Service service){
+    public Controller controller(Service service){
         return new TwitterController(service);
     }
-    
     @Bean
-    public Service service (CrdDao dao){
+    public Service service(CrdDao dao){
         return new TwitterService(dao);
     }
-
     @Bean
-    public CrdDao service (HttpHelper helper){
-        return new TwitterDao(helper);
+    public CrdDao crdDao(HttpHelper httpHelper){
+        return new TwitterDao(httpHelper);
     }
 
     @Bean
     HttpHelper helper(){
-        String consumerKey = System.getenv("consumerKey");
+        String consumerKey= System.getenv("consumerKey");
         String consumerSecret = System.getenv("consumerSecret");
         String accessToken = System.getenv("accessToken");
-        String tokenSecret = System.getenv("tokenSecret");
+        String tokenSecret= System.getenv("tokenSecret");
         return new TwitterHttpHelper(consumerKey, consumerSecret, accessToken, tokenSecret);
     }
-
+    
 }

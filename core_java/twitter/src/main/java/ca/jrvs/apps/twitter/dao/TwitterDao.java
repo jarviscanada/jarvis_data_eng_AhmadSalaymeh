@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 
 
 
-@Repository
+
 public class TwitterDao implements CrdDao<Tweet,String> {
 
 
@@ -33,7 +33,7 @@ public class TwitterDao implements CrdDao<Tweet,String> {
     private HttpHelper httpHelper;
 
 
-    @Autowired
+  
     public TwitterDao(HttpHelper httpHelper){
         this.httpHelper=httpHelper;
     }

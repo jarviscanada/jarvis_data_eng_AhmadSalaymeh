@@ -30,7 +30,7 @@ import org.springframework.util.StringUtils;
 
 
 
-@Component
+
 public class TwitterCLIApp {
 
     public static final String USAGE="USAGE: TwitterCLIApp post|show|delete [options]";
@@ -39,7 +39,7 @@ public class TwitterCLIApp {
 
 
 
-    @Autowired
+  
     public TwitterCLIApp(Controller controller ){
         this.controller = controller;
     }
