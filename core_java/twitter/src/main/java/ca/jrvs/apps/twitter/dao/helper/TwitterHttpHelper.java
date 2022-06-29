@@ -4,6 +4,8 @@ package ca.jrvs.apps.twitter.dao.helper;
 
 import java.io.IOException;
 import java.net.URI;
+import java.util.List;
+
 import oauth.signpost.OAuthConsumer;
 import oauth.signpost.commonshttp.CommonsHttpOAuthConsumer;
 import oauth.signpost.exception.OAuthException;
@@ -36,13 +38,19 @@ public class TwitterHttpHelper implements HttpHelper{
 
     @Autowired
     public TwitterHttpHelper(){
-      this.consumerKey=System.getenv("consumerKey");
-      this.consumerSecret=System.getenv("consumerSecret");
-      this.accessToken=System.getenv("accessToken");
-      this.tokenSecret=System.getenv("tokenSecret");
-      consumer = new CommonsHttpOAuthConsumer(consumerKey, consumerSecret);
-      consumer.setTokenWithSecret(accessToken, tokenSecret);
-      httpClient = new DefaultHttpClient();
+        Config config = new Config();
+        List<String> keys = config.ConfigRun(); 
+        // this.consumerKey=System.getenv("consumerKey");
+        // this.consumerSecret=System.getenv("consumerSecret");
+        // this.accessToken=System.getenv("accessToken");
+        // this.tokenSecret=System.getenv("tokenSecret");
+        this.consumerKey=keys.get(0);
+        this.consumerSecret=keys.get(1);
+        this.accessToken=keys.get(2);
+        this.tokenSecret=keys.get(3);
+        consumer = new CommonsHttpOAuthConsumer(consumerKey, consumerSecret);
+        consumer.setTokenWithSecret(accessToken, tokenSecret);
+        httpClient = new DefaultHttpClient();
     }
     
     public TwitterHttpHelper(String consumerKey,String consumerSecret,String accessToken,String tokenSecret) {

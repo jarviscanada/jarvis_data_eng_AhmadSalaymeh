@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Config",
+            "request": "launch",
+            "mainClass": "ca.jrvs.apps.twitter.dao.helper.Config",
+            "projectName": "java_apps"
+        },
+        {
+            "type": "java",
             "name": "Launch TwitterCLIComponentScan",
             "request": "launch",
             "mainClass": "ca.jrvs.apps.twitter.spring.TwitterCLIComponentScan",
