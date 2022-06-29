@@ -1,4 +1,4 @@
-
+package ca.jrvs.apps.twitter.dao;
 
 public interface CrdDao<T, ID> {
 
@@ -23,3 +23,4 @@ public interface CrdDao<T, ID> {
    */
   T deleteById(ID id);
 }
+
