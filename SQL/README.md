@@ -266,4 +266,243 @@ ORDER BY
 
 ```
 
+12.How can you output a list of all members, including the individual who recommended them (if any), without using any joins? Ensure that there are no duplicates in the list, and that each firstname + surname pairing is formatted as a column and ordered.
+```sql
+select 
+  distinct mem.firstname, 
+  mem.surname 
+FROM 
+  cd.members mem 
+  JOIN cd.members ref ON mem.memid = ref.recommendedby 
+ORDER BY 
+  mem.surname, 
+  mem.firstname;
 
+```
+
+
+13.How can you output a list of all members, including the individual who recommended them (if any), without using any joins? Ensure that there are no duplicates in the list, and that each firstname + surname pairing is formatted as a column and ordered.
+
+```sql
+SELECT 
+  distinct CONCAT(mem.firstname,' ' ,mem.surname) as members,
+  (
+    SELECT 
+      CONCAT(rec.firstname, ' ', rec.surname) as recommender 
+    FROM 
+      cd.members rec 
+    WHERE 
+      rec.memid = mem.recommendedby
+  ) 
+FROM 
+  cd.members mem
+
+```
+
+14. Produce a count of the number of recommendations each member has made. Order by member ID.
+
+```sql
+SELECT 
+  recommendedby, 
+  COUNT(*) 
+FROM 
+  cd.members 
+WHERE 
+  recommendedby is not null 
+GROUP BY 
+  recommendedby 
+ORDER BY 
+  recommendedby
+
+```
+
+15.Produce a list of the total number of slots booked per facility. For now, just produce an output table consisting of facility id and slots, sorted by facility id.
+```sql
+SELECT 
+  facid, 
+  sum(slots) 
+from 
+  cd.bookings 
+GROUP BY 
+  facid 
+ORDER BY 
+  facid
+
+```
+
+16.Produce a list of the total number of slots booked per facility in the month of September 2012. Produce an output table consisting of facility id and slots, sorted by the number of slots.
+```sql
+SELECT 
+  facid, 
+  sum(slots) 
+from 
+  cd.bookings 
+WHERE 
+  starttime >= '2012-09-01' 
+  and starttime < '2012-10-01' 
+GROUP BY 
+  facid 
+ORDER BY 
+  2
+```
+
+17.Produce a list of the total number of slots booked per facility per month in the year of 2012. Produce an output table consisting of facility id and slots, sorted by the id and month.
+```sql
+SELECT 
+  books.facid, 
+  EXTRACT(
+    MONTH 
+    FROM 
+      books.starttime
+  ) as month, 
+  sum(slots) 
+from 
+  cd.bookings books 
+WHERE 
+  EXTRACT(
+    YEAR 
+    FROM 
+      books.starttime
+  ) = 2012 
+GROUP BY 
+  1, 
+  2 
+ORDER BY 
+  1, 
+  2
+```
+
+18. Find the total number of members (including guests) who have made at least one booking.
+```sql
+SELECT 
+  COUNT(DISTINCT bookings.memid) 
+FROM 
+  cd.bookings bookings
+```
+19.Produce a list of each member name, id, and their first booking after September 1st 2012. Order by member ID.
+```sql
+SELECT 
+  mem.surname, 
+  mem.firstname, 
+  mem.memid, 
+  MIN(book.starttime) 
+FROM 
+  cd.members mem 
+  LEFT JOIN cd.bookings book ON book.memid = mem.memid 
+WHERE 
+  EXTRACT(
+    MONTH 
+    FROM 
+      book.starttime
+  ) = 9 
+  and EXTRACT(
+    YEAR 
+    FROM 
+      book.starttime
+  ) = 2012 
+GROUP BY 
+  1, 
+  2, 
+  3 
+ORDER BY 
+  3
+
+```
+20.Produce a list of member names, with each row containing the total member count. Order by join date, and include guest members.
+```sql
+SELECT 
+  (
+    SELECT 
+      DISTINCT COUNT(*) 
+    FROM 
+      cd.members
+  ), 
+  firstname, 
+  surname 
+FROM 
+  cd.members 
+ORDER BY 
+  joindate
+
+```
+21.Produce a monotonically increasing numbered list of members (including guests), ordered by their date of joining. Remember that member IDs are not guaranteed to be sequential.
+```sql
+SELECT 
+  ROW_NUMBER() over(), 
+  firstname, 
+  surname 
+FROM 
+  cd.members 
+ORDER BY 
+  joindate
+
+```
+
+22.Output the facility id that has the highest number of slots booked. Ensure that in the event of a tie, all tieing results get output.
+```sql
+select 
+  facid, 
+  total 
+from 
+  (
+    select 
+      facid, 
+      sum(slots) total, 
+      rank() over (
+        order by 
+          sum(slots) desc
+      ) rank 
+    from 
+      cd.bookings 
+    group by 
+      facid
+  ) as ranked 
+where 
+  rank = 1
+
+
+```
+
+23.Output the names of all members, formatted as 'Surname, Firstname'
+```sql
+SELECT 
+  CONCAT(surname, ', ', firstname) as name 
+FROM 
+  cd.members
+
+```
+24.Perform a case-insensitive search to find all facilities whose name begins with 'tennis'. Retrieve all columns.
+```sql
+SELECT 
+  * 
+FROM 
+  cd.facilities 
+WHERE 
+  cd.facilities.name LIKE 'Tennis%';
+
+```
+25.You've noticed that the club's member table has telephone numbers with very inconsistent formatting. You'd like to find all the telephone numbers that contain parentheses, returning the member ID and telephone number sorted by member ID.
+
+```sql
+SELECT 
+  memid, 
+  telephone 
+FROM 
+  cd.members 
+WHERE 
+  telephone LIKE '(%'
+
+```
+26.You'd like to produce a count of how many members you have whose surname starts with each letter of the alphabet. Sort by the letter, and don't worry about printing out a letter if the count is 0.
+```sql
+SELECT 
+  SUBSTRING(cd.members.surname, 1, 1) as letter, 
+  COUNT(cd.members.surname) 
+from 
+  cd.members 
+GROUP BY 
+  letter 
+ORDER BY 
+  letter
+
+```
