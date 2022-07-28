@@ -21,8 +21,9 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AhmadSalay
       
   - JDBC App: This was a simple application to demonstrate the Postgres JDBC driver's functionality when connecting to the stores data. It involved retrieving customer and order information using Data Access Object within Java from a generated PostgreSQL database and ensuring atomicity with each transaction.
   - Grep App: This project is a Java implementation of the grep terminal command. It recursively examines all files in a directory for lines that match a user-supplied regular expression, then saves all of those lines to a file. The project contatied two verisons, one using pre-java 8 using collections and File IO APIs, and another using Java 8 capabilities including Java Paths, Streams, and Lambdas. The Java-8 version highlighted those features to work with JVM's heap size limits
+  - Twitter App: The Twitter Application leverages the Twitter REST API to perform CRUD operations via the command line on a user's Twitter account. Users can POST, READ, and DELETE tweets from the command line. This Java program uses HTTP Client to connect to the Twitter REST API. Maven and spring-boot are used to structure and install the dependences for the application. Deployed on DockerHub for simple distribution
 
-<!-- **Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AhmadSalaymeh/tree/master/springboot)]: Not Started
+**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AhmadSalaymeh/tree/master/springboot)]: Not Started
 
 **Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AhmadSalaymeh/tree/master/python_data_anlytics)]: Not Started
 
@@ -30,7 +31,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AhmadSalay
 
 **Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AhmadSalaymeh/tree/master/spark)]: Not Started
 
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AhmadSalaymeh/tree/master/cloud_devops)]: Not Started -->
+**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AhmadSalaymeh/tree/master/cloud_devops)]: Not Started
 
 
 ## Highlighted Projects
@@ -49,7 +50,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AhmadSalay
 
 
 ## Miscellaneous
-I enjoy to read books during my free time, which help me gain new perspectives. I also enjoy working out as this activity allows me to destress and relax.
-- Fitness: Weight lifting, running, Swimming.
-- Reading Books: Sci-Fi, Fiction Novels, Self-help
-- Causal gaming: Racing games, RPG Games
+- Fitness
+- Reading Books
+- Creating Music and painting
+- Causal gaming
