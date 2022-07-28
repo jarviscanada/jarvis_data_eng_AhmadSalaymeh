@@ -210,7 +210,7 @@ SELECT
 FROM 
   cd.facilities;
 ```
-1. You, for some reason, want a combined list of all surnames and all facility names. Yes, this is a contrived example :-). Produce that list!
+8. You, for some reason, want a combined list of all surnames and all facility names. Yes, this is a contrived example :-). Produce that list!
 ```sql
 SELECT 
   cd.members.surname 
@@ -266,7 +266,7 @@ ORDER BY
 
 ```
 
-12.How can you output a list of all members, including the individual who recommended them (if any), without using any joins? Ensure that there are no duplicates in the list, and that each firstname + surname pairing is formatted as a column and ordered.
+12.How can you output a list of all members who have recommended another member? Ensure that there are no duplicates in the list, and that results are ordered by (surname, firstname).
 ```sql
 select 
   distinct mem.firstname, 
@@ -282,7 +282,6 @@ ORDER BY
 
 
 13.How can you output a list of all members, including the individual who recommended them (if any), without using any joins? Ensure that there are no duplicates in the list, and that each firstname + surname pairing is formatted as a column and ordered.
-
 ```sql
 SELECT 
   distinct CONCAT(mem.firstname,' ' ,mem.surname) as members,
