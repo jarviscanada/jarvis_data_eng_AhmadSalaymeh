@@ -6,21 +6,21 @@ github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_AhmadSalay
 
 # Introduce yourself, your academic and professional background.
 # What excites you about the software industry and your passion. At least 80 words
-summary: I'm a recent graduate from Wilfrid Laurier University with a Bachelor of Science in Computer Science, looking to advance my career in software development. During my undergrad, I learned the fundamentals of programming through data structures and algorithm courses and obtained programming skills in languages such as Python and Java. Currently, I am working at Jarvis, where I am improving my knowledge and skills in programming and participating in an agile environment. I enjoy tackling new challenges and pushing myself to learn more, which helps me grow. 
+summary: I'm a recent graduate from Wilfrid Laurier University with a Bachelor of Science in Computer Science, looking to advance my career in data engineering. During my undergrad, I learned programming fundamentals through data structures and algorithm courses and obtained programming skills in languages such as Python and Java. Towards the end of my undergrad, I took courses in data engineering, such as data visualization. In which, I learned how to use Panda and matplotlib to process and handle data. Currently, I am working at Jarvis where I am improving my knowledge and skills in data engineering by implementing python data applications.  
 
 # Group your skills by level.
 # Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
 skills:
   # At least 5 skills
   proficient:
-    - Java
-    - Linux/Bash
+    - Python
     - RDBMS/SQL
-    - Agile/Scrum
+    - Pandas
     - Git
+    - Java
   # At least 5 skills
   competent:
-    - Python
+    - Linux/Bash
     - JavaScript
     - Docker
     - HTML/CSS
@@ -45,34 +45,20 @@ jarvis_projects:
     description:
       - "JDBC App: This was a simple application to demonstrate the Postgres JDBC driver's functionality when connecting to the stores data. It involved retrieving customer and order information using Data Access Object within Java from a generated PostgreSQL database and ensuring atomicity with each transaction."
       - "Grep App: This project is a Java implementation of the grep terminal command. It recursively examines all files in a directory for lines that match a user-supplied regular expression, then saves all of those lines to a file. The project contatied two verisons, one using pre-java 8 using collections and File IO APIs, and another using Java 8 capabilities including Java Paths, Streams, and Lambdas. The Java-8 version highlighted those features to work with JVM's heap size limits"
-      - "Twitter App: The Twitter Application leverages the Twitter REST API to perform CRUD operations via the command line on a user's Twitter account. Users can POST, READ, and DELETE tweets from the command line. This Java program uses HTTP Client to connect to the Twitter REST API. Maven and spring-boot are used to structure and install the dependences for the application. Deployed on DockerHub for simple distribution"
-  - name: "Springboot App"
-    git_url: "/springboot"
-    description: ""
-  - name: "Python Data Analytics"
-    git_url: "/python_data_anlytics"
-    description: ""
-  - name: "Hadoop"
-    git_url: "/hadoop"
-    description: ""
-  - name: "Spark"
-    git_url: "/spark"
-    description: ""
-  - name: "Cloud/DevOps"
-    git_url: "/cloud_devops"
-    description: ""
+      - "Twitter App: The Twitter Application leverages the Twitter REST API to perform CRUD operations via the command line on a user's Twitter account. Users can POST, READ, and DELETE tweets from the command line. This Java program uses HTTP Client to connect to the Twitter REST API. Maven is used to structure and install the application's dependencies. Spring boot is used to establish dependency injection with the help of the IoC container. Deployed on Docker Hub for simple distribution"
 
 # List of personal or academic projects
 # Feel free to add more projects
 highlighted_projects:
     #project name
-  - name: "Cluster Monitor"
+  - name: "Climate Change Data Porject"
     #URL is optional
-    git_url: "https://github.com/jarviscanada/jarvis_data_eng_AhmadSalaymeh/tree/main/linux_sql"
+    git_url: "https://github.com/salaymeh/CP321-project/blob/main/cp321_project_ice.ipynb"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: This program allows the Linux cluster Administration team to view, monitor, and obtain data on nodes/servers running. In addition, this program provides real-time resource usage, and the LCA team will use data to create reports.
+    description: Analyzed data from the Canadian government on melting ice caps in the northern region. This was achieved by using Python, Pandas, and NumPy. 
+  
   - name: "Promodo Timer"
-    git_url:
+    git_url: "https://salaymeh.github.io/pomodor-timer/"
     description: A simple timer that follows the Pomodoro technique. Users can set their custom time for work and break. This application was developed using Javascript, HTML/CSS, and bootstrap. 
 
 #List of professional experience
@@ -80,11 +66,11 @@ highlighted_projects:
 #The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
 professional_experience:
   #Write your Jarvis role as a professional experience rather than training.
-  - title: "Software Developer"
+  - title: "Date Engineer"
     company: "Jarvis"
     duration: "2022-present"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: "Implementing applications using the agile methodology Led, organized and participated in daily scrum meetings with the development team. It allowed us to communicate, problem-solve, and discuss our current goals for the day. I also practiced in scrum retro meetings, where we discussed the previous sprint cycle and how to improve moving forward. As well as used Notion to track my daily tickets and sprint backlog."
+    description: "I am currently implementing Data applications utilizing Python, Pandas, Flask, AZURE, PostgreSQL, and REST APIS. I participated in daily scrum meetings with the development team. It allowed us to communicate, problem-solve, and discuss our current goals for the day. I used Notion to track my daily tickets and sprint backlog."
 
 #List of edcuation
 education: 
@@ -97,7 +83,7 @@ education:
 others:
   - title: "Activities/Hobbies"
     bullets:
-      - "Fitness"
-      - "Reading Books"
-      - "Creating Music and painting"
-      - "Causal gaming"
+      - "Fitness: weight lifting"
+      - "Reading Books: Sci-fi, fiction"
+      - "Creating Music and painting: House-music, abstract art"
+      - "casual gaming: racing games, FIFA, RPG"
