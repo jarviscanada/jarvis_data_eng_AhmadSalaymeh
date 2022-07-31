@@ -1,6 +1,6 @@
 # Ahmad Salaymeh . Jarvis Consulting
 
-I'm a recent graduate from Wilfrid Laurier University with a Bachelor of Science in Computer Science, looking to advance my career in data engineering. During my undergrad, I learned programming fundamentals through data structures and algorithm courses and obtained programming skills in languages such as Python and Java. Towards the end of my undergrad, I took courses in data engineering, such as data visualization. In which, I learned how to use Panda and matplotlib to process and handle data. Currently, I am working at Jarvis where I am improving my knowledge and skills in data engineering by implementing python data applications.
+I'm a recent graduate from Wilfrid Laurier University with a Bachelor of Science in Computer Science, looking to advance my career in data engineering. During my undergrad, I learned programming fundamentals through data structures, algorithm and database courses and obtained programming skills in languages such as Python and Java. Towards the end of my undergrad, I took courses in data engineering, such as data visualization. In which, I learned how to use Panda and numpy to process and handle data. Currently, I am working at Jarvis where I am improving my knowledge and skills in data engineering by implementing python data applications.
 
 ## Skills
 
