@@ -32,7 +32,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AhmadSalay
 
 ## Professional Experiences
 
-**Date Engineer, Jarvis (2022-present)**: I am currently implementing Data applications utilizing Python, Pandas, Flask, AZURE, PostgreSQL, and REST APIS. I participated in daily scrum meetings with the development team. It allowed us to communicate, problem-solve, and discuss our current goals for the day. I used Notion to track my daily tickets and sprint backlog.
+**Date Engineer, Jarvis (2022-present)**: I am currently implementing Data applications utilizing Python, Pandas, Flask, AZURE, PostgreSQL, and REST APIS. Participating in daily scrum meetings with the development team. This allows us to communicate, problem-solve, and discuss our current goals for the day. I used Notion to track my daily tickets and sprint backlog.
 
 
 ## Education
