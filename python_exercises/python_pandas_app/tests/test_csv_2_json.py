@@ -1,4 +1,3 @@
-
 import pandas as pd
 from python_pandas_app.app_convert_csv_to_json import csv_2_json
 
